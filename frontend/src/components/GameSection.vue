@@ -1,14 +1,12 @@
 <template>
   <section class="mt-6">
-    <div
-      class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 transition-colors"
-    >
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 transition-colors">
       <!-- 🔥 Featured Games -->
-       <div class="py-10 flex items-center justify-center mt-10">
+      <div class="py-10 flex items-center justify-center mt-10">
         <h2
           class="relative text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100 tracking-wide after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-3 after:w-[60px] after:h-[3px] after:bg-yellow-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-[80px]"
         >
-         Suggested Games
+          Suggested Games
         </h2>
       </div>
       <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
@@ -18,9 +16,7 @@
           class="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
         >
           <div class="h-[270px] sm:h-[270px] lg:h-[340px] relative">
-            <div
-              class="absolute inset-0 bg-white"
-            ></div>
+            <div class="absolute inset-0 bg-white"></div>
 
             <div class="absolute bottom-3 left-3 text-gray-800">
               <h3 class="text-sm sm:text-lg lg:text-xl font-bold mb-1">
@@ -40,30 +36,101 @@
         <h2
           class="relative text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100 tracking-wide after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-3 after:w-[60px] after:h-[3px] after:bg-yellow-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-[80px]"
         >
-          Special Game Categories
+          Game Categories
         </h2>
       </div>
 
-      <!-- 🎮 Special Categories -->
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pb-12">
+      <!-- Games Categories -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pb-12">
+        <!-- Nintendo -->
         <div
-          v-for="item in specialCategories"
-          :key="item.id"
-          class="relative w-full rounded-xl overflow-hidden shadow-md group cursor-pointer transition-all duration-300 hover:scale-[1.02] h-[270px] sm:h-[270px] lg:h-[500px]"
+          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
+          :style="{ backgroundImage: `url(${nintendoImg})` }"
         >
-          <div class="absolute inset-0 bg-white"></div>
-
           <div
-            class="absolute inset-0"
+            class="absolute inset-0 bg-gradient-to-t from-red-900/80 via-black/40 to-transparent"
           ></div>
 
-          <div class="absolute bottom-3 left-3 text-gray-800">
-            <h3 class="text-sm sm:text-lg font-bold">
-              {{ item.title }}
+          <div class="relative text-center pb-8">
+            <h3
+              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
+            >
+              Nintendo
             </h3>
-            <p class="text-xs sm:text-sm opacity-80">
-              {{ item.subtitle }}
-            </p>
+            <button
+              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-red-600 hover:text-white hover:shadow-lg hover:shadow-red-500/40"
+            >
+              View Games →
+            </button>
+          </div>
+        </div>
+
+        <!-- PS5 -->
+        <div
+          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
+          :style="{ backgroundImage: `url(${ps5Img})` }"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-black/40 to-transparent"
+          ></div>
+
+          <div class="relative text-center pb-8">
+            <h3
+              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
+            >
+              PS5
+            </h3>
+            <button
+              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-500/40"
+            >
+              View Games →
+            </button>
+          </div>
+        </div>
+
+        <!-- PS4 -->
+        <div
+          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
+          :style="{ backgroundImage: `url(${ps4Img})` }"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-blue-800/80 via-black/40 to-transparent"
+          ></div>
+
+          <div class="relative text-center pb-8">
+            <h3
+              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
+            >
+              PS4
+            </h3>
+            <button
+              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-400/40"
+            >
+              View Games →
+            </button>
+          </div>
+        </div>
+
+        <!-- Xbox -->
+        <div
+          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
+          :style="{ backgroundImage: `url(${xboxImg})` }"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-green-900/80 via-black/40 to-transparent"
+          ></div>
+
+          <div class="relative text-center pb-8">
+            <h3
+              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
+            >
+              Xbox
+            </h3>
+            <button
+              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-green-600 hover:text-white hover:shadow-lg hover:shadow-green-500/40"
+            >
+              View Games →
+            </button>
           </div>
         </div>
       </div>
@@ -104,7 +171,7 @@
         </div>
       </div>
 
-      <!-- 🛒 Products Grid -->
+      <!-- Our Products Grid -->
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-12"
       >
@@ -166,6 +233,12 @@
 </template>
 
 <script setup>
+import nintendoImg from "../assets/game-category/nintendo-game-poster.png";
+import ps5Img from "../assets/game-category/ps5-game-poster.png";
+import ps4Img from "../assets/game-category/ps4-game-poster.png";
+import xboxImg from "../assets/game-category/xbox-game-poster.png";
+
+
 import { ref, computed, onMounted } from "vue";
 
 const games = ref([]);
@@ -174,7 +247,7 @@ const ourProducts = ref([]);
 const sortType = ref("new");
 
 onMounted(async () => {
-  const res = await fetch("http://localhost:3000/api/products");
+  const res = await fetch("http://localhost:3000/games");
   const data = await res.json();
 
   games.value = data.filter((item) => item.category === "suggest").slice(0, 2);
