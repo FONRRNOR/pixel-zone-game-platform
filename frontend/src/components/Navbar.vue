@@ -10,9 +10,7 @@
         class="text-xl sm:text-2xl lg:text-3xl font-black tracking-wider cursor-pointer select-none"
       >
         <span class="text-white">PIXEL </span>
-        <span class="text-[#ffb300] drop-shadow-[0_0_8px_#ffb300]">
-          ZONE
-        </span>
+        <span class="text-[#ffb300] drop-shadow-[0_0_8px_#ffb300]"> ZONE </span>
       </div>
 
       <!-- Desktop Menu -->
@@ -34,8 +32,23 @@
         <!-- Account -->
         <img :src="userIcon" alt="User" class="icon" />
 
-        <!-- Basket -->
-        <img :src="bagIcon" alt="Bag" class="icon" />
+        <!-- Bag -->
+        <div class="flex items-center cursor-pointer">
+          <img :src="bagIcon" alt="Bag" class="icon mr-2" />
+
+          <!-- Container amount -->
+          <div class="flex items-center gap-3 min-w-[110px]">
+            <!-- จำนวน -->
+            <span class="text-[#ffb300] tabular-nums font-semibold">
+              ({{ cartCount }})
+            </span>
+
+            <!-- total price -->
+            <span class="text-[#ffb300] tabular-nums font-semibold">
+              ${{ cartTotal }}
+            </span>
+          </div>
+        </div>
 
         <!-- Mobile Dropdown -->
         <div class="md:hidden relative">
@@ -62,7 +75,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 import searchIcon from "../assets/navbar/search-icon.png";
 import userIcon from "../assets/navbar/user-icon.png";
@@ -78,6 +91,20 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isOpen.value = false;
 };
+
+const cartItems = ref([]);
+
+const cartCount = computed(() => {
+  return cartItems.value.reduce((total, item) => total + item.quantity, 0);
+});
+
+const cartTotal = computed(() => {
+  const total = cartItems.value.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
+  return total.toFixed(2);
+});
 </script>
 
 <style scoped>
