@@ -5,7 +5,7 @@ import FeatureBar from "./components/FeatureBar.vue";
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
+  <div class="min-h-screen transition-colors">
     <Navbar />
     <HeroBanner />
     <FeatureBar />
