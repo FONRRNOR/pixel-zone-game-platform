@@ -1,7 +1,8 @@
-<template>
-  <div class="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
-  </div>
-</template>
-
 <script setup>
+import Navbar from './components/Navbar.vue'
 </script>
+
+<template>
+  <Navbar />
+  <router-view />
+</template>
