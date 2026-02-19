@@ -60,53 +60,7 @@
             <button
               class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-red-600 hover:text-white hover:shadow-lg hover:shadow-red-500/40"
             >
-              View Games →
-            </button>
-          </div>
-        </div>
-
-        <!-- PS5 -->
-        <div
-          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
-          :style="{ backgroundImage: `url(${ps5Img})` }"
-        >
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-black/40 to-transparent"
-          ></div>
-
-          <div class="relative text-center pb-8">
-            <h3
-              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
-            >
-              PS5
-            </h3>
-            <button
-              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-500/40"
-            >
-              View Games →
-            </button>
-          </div>
-        </div>
-
-        <!-- PS4 -->
-        <div
-          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
-          :style="{ backgroundImage: `url(${ps4Img})` }"
-        >
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-blue-800/80 via-black/40 to-transparent"
-          ></div>
-
-          <div class="relative text-center pb-8">
-            <h3
-              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
-            >
-              PS4
-            </h3>
-            <button
-              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-400/40"
-            >
-              View Games →
+              View Products →
             </button>
           </div>
         </div>
@@ -129,7 +83,53 @@
             <button
               class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-green-600 hover:text-white hover:shadow-lg hover:shadow-green-500/40"
             >
-              View Games →
+              View Products →
+            </button>
+          </div>
+        </div>
+
+        <!-- PS5 -->
+        <div
+          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
+          :style="{ backgroundImage: `url(${ps5Img})` }"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-black/40 to-transparent"
+          ></div>
+
+          <div class="relative text-center pb-8">
+            <h3
+              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
+            >
+              PS5
+            </h3>
+            <button
+              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-500/40"
+            >
+              View Products →
+            </button>
+          </div>
+        </div>
+
+        <!-- PS4 -->
+        <div
+          class="relative w-full rounded-xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:scale-[1.03] h-[270px] lg:h-[400px] flex items-end justify-center bg-cover bg-center"
+          :style="{ backgroundImage: `url(${ps4Img})` }"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-blue-800/80 via-black/40 to-transparent"
+          ></div>
+
+          <div class="relative text-center pb-8">
+            <h3
+              class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg"
+            >
+              PS4
+            </h3>
+            <button
+              class="mt-4 px-6 py-2 text-sm font-semibold bg-white text-black rounded-full transition-all duration-300 hover:bg-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-400/40"
+            >
+              View Products →
             </button>
           </div>
         </div>
@@ -237,7 +237,6 @@ import nintendoImg from "../assets/game-category/nintendo-game-poster.png";
 import ps5Img from "../assets/game-category/ps5-game-poster.png";
 import ps4Img from "../assets/game-category/ps4-game-poster.png";
 import xboxImg from "../assets/game-category/xbox-game-poster.png";
-
 
 import { ref, computed, onMounted } from "vue";
 
