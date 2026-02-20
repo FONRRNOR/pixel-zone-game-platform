@@ -50,6 +50,15 @@
           </div>
         </div>
 
+        <div>
+          <button
+            @click="openLogoutModal"
+            class="px-3 py-1 bg-[#c50219] hover:bg-[#c4001e]/90 transition rounded-md text-sm font-medium text-white"
+          >
+            Logout
+          </button>
+        </div>
+
         <!-- Mobile Dropdown -->
         <div class="md:hidden relative">
           <div class="cursor-pointer" @click="toggleMenu">
@@ -72,15 +81,52 @@
       </div>
     </nav>
   </header>
+  
+  <!-- Logout Confirm Modal -->
+  <div
+    v-if="showLogoutModal"
+    class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-[999]"
+  >
+    <div
+      class="bg-[#1e1f35] p-6 rounded-xl w-[320px] shadow-2xl border border-[#2a2b45]"
+    >
+      <h2 class="text-lg font-semibold text-white mb-4 text-center">
+        Confirm Logout
+      </h2>
+
+      <p class="text-gray-300 text-sm text-center mb-6">
+        Are you sure you want to logout?
+      </p>
+
+      <div class="flex justify-center gap-4">
+        <button
+          @click="closeLogoutModal"
+          class="px-4 py-2 bg-gray-600 hover:bg-gray-500 rounded-md text-sm text-white transition"
+        >
+          Cancel
+        </button>
+
+        <button
+          @click="confirmLogout"
+          class="px-4 py-2 bg-[#c50219] hover:bg-[#c4001e]/90 rounded-md text-sm text-white transition"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 import searchIcon from "../assets/navbar/search-icon.png";
 import userIcon from "../assets/navbar/user-icon.png";
 import bagIcon from "../assets/navbar/bag-icon.png";
 import mobileMenuIcon from "../assets/navbar/mobile-menu-icon.png";
+
+const router = useRouter();
 
 const isOpen = ref(false);
 
@@ -90,6 +136,12 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
   isOpen.value = false;
+};
+
+/* FUNCTION */
+const logout = () => {
+  localStorage.removeItem("role"); // ลบสิทธิ์ผู้ใช้
+  router.replace("/login"); // ไปหน้า login และกดย้อนกลับไม่ได้
 };
 
 const cartItems = ref([]);
@@ -105,6 +157,22 @@ const cartTotal = computed(() => {
   );
   return total.toFixed(2);
 });
+
+const showLogoutModal = ref(false);
+
+const openLogoutModal = () => {
+  showLogoutModal.value = true;
+};
+
+const closeLogoutModal = () => {
+  showLogoutModal.value = false;
+};
+
+const confirmLogout = () => {
+  localStorage.removeItem("role");
+  showLogoutModal.value = false;
+  router.replace("/login");
+};
 </script>
 
 <style scoped>

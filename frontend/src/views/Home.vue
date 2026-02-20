@@ -26,7 +26,7 @@ const logout = () => {
         backgroundImage: `url(${bg})`,
         backgroundRepeat: 'repeat',
         backgroundSize: '700px',
-        opacity: 0.4
+        opacity: 0.2
       }"
     ></div>
 
