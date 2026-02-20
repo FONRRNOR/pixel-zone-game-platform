@@ -27,24 +27,22 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
   const role = localStorage.getItem("role")
 
-  // ถ้าไปหน้า login แต่ยัง login อยู่ → เด้งไป home
   if (to.path === "/login" && role === "user") {
-    return next("/home")
+    return "/home"
   }
 
   if (to.path === "/login" && role === "admin") {
-    return next("/admin-dashboard")
+    return "/admin-dashboard"
   }
 
-  // ถ้าหน้านั้นต้อง login แต่ไม่มี role
   if (to.meta.requiresAuth && !role) {
-    return next("/login")
+    return "/login"
   }
 
-  next()
+  return true
 })
 
 export default router
