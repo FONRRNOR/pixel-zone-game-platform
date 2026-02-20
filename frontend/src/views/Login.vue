@@ -5,7 +5,7 @@ const router = useRouter()
 
 const loginAsUser = () => {
   localStorage.setItem("role", "user")
-  router.push("/user-dashboard")
+  router.push("/home")
 }
 
 const loginAsAdmin = () => {
