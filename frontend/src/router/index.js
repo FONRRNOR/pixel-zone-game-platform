@@ -30,6 +30,12 @@ const router = createRouter({
 router.beforeEach((to) => {
   const role = localStorage.getItem("role")
 
+  // 🔥 ถ้าเข้าเว็บครั้งแรก และ path เป็น root
+  if (to.path === "/") {
+    return "/login"
+  }
+
+  // ถ้าไปหน้า login แต่ login อยู่แล้ว
   if (to.path === "/login" && role === "user") {
     return "/home"
   }
@@ -38,6 +44,7 @@ router.beforeEach((to) => {
     return "/admin-dashboard"
   }
 
+  // ถ้าหน้านั้นต้อง login แต่ไม่มี role
   if (to.meta.requiresAuth && !role) {
     return "/login"
   }
